@@ -50,17 +50,11 @@ const tempWatchedData = [
 const average = (arr) =>
   arr.reduce((acc, cur, i, arr) => acc + cur / arr.length, 0);
 
-const KEY = "8e3814fb";
+const KEY = process.env.REACT_APP_API_KEY;
 
 export default function App() {
   const [movies, setMovies] = useState([]);
   const [watched, setWatched] = useState([]);
-
-  useEffect(function () {
-    fetch(`http://www.omdbapi.com/?i=tt3896198&apikey=8e3814fb&s=interstellar`)
-      .then((res) => res.json())
-      .then((data) => setMovies(data.Search));
-  }, []);
 
   return (
     <>
