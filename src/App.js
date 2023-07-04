@@ -71,9 +71,11 @@ export default function App() {
           throw new Error("Something went wrong with fetching movies");
 
         const data = await res.json();
+
+        if (data.Response === "false") throw new Error("Movie not found");
+
         setMovies(data.Search);
       } catch (err) {
-        console.log(err.message);
         setError(err.message);
       } finally {
         setIsLoading(false);
