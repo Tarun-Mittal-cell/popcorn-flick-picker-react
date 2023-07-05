@@ -58,7 +58,7 @@ export default function App() {
   const [watched, setWatched] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState("");
-  const tempQuery = "interstellar";
+  const [selectedId, setSelectedId] = useState(null);
 
   useEffect(
     function () {
@@ -228,6 +228,10 @@ function Movie({ movie }) {
       </div>
     </li>
   );
+}
+
+function SelectedMovie({ selectedId }) {
+  return <div className="details">{selectedId}</div>;
 }
 
 function WatchedSummary({ watched }) {
